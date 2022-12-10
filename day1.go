@@ -40,12 +40,21 @@ Find the Elf carrying the most Calories. How many total Calories is that Elf car
 package main
 
 import (
+	"errors"
 	"fmt"
 	"sort"
 	"strconv"
 )
 
-func getElfWithMostCalories(filename string) int {
+func getTopNElvesTotalCalories(filename string, n int) int {
+	if filename == "" {
+		fmt.Print("Invalid Argumnent: filename cannot be empty")
+		return 0
+	} else if n < 1 {
+		fmt.Print("Invalid Argumnent: n must be greater than 0")
+		return 0
+	}
+
 	lines, err := getLinesFromFile(filename)
 
 	if err != nil {
@@ -53,27 +62,47 @@ func getElfWithMostCalories(filename string) int {
 		return 0
 	}
 
+	elfCalories, err := getElfCalories(lines)
+	if err != nil {
+		fmt.Print(err.Error())
+		return 0
+	}
+	maxElfCals := elfCalories[len(elfCalories)-n:]
+
+	return sum(maxElfCals)
+}
+
+func getElfCalories(lines []string) ([]int, error) {
 	elfCalories := []int{}
 	elf := []int{}
-	for _, line := range lines {
+	for i, line := range lines {
 		if line == "" {
 			total := sum(elf)
 			elfCalories = append(elfCalories, total)
 			elf = []int{}
 			continue
+		} else if i == len(lines)-1 {
+			cal, err := strconv.Atoi(line)
+			if err != nil {
+				msg := fmt.Sprintf("Error converting elf calorie: %s", line)
+				return []int{}, errors.New(msg)
+			}
+			elf = append(elf, cal)
+			total := sum(elf)
+			elfCalories = append(elfCalories, total)
+			continue
 		}
 		cal, err := strconv.Atoi(line)
 		if err != nil {
-			fmt.Printf("Error converting elf calorie: %s", line)
-			return 0
+			msg := fmt.Sprintf("Error converting elf calorie: %s", line)
+			return []int{}, errors.New(msg)
 		}
 		elf = append(elf, cal)
 	}
 
 	sort.Ints(elfCalories)
-	maxElfCal := elfCalories[len(elfCalories)-1]
 
-	return maxElfCal
+	return elfCalories, nil
 }
 
 func sum(nums []int) int {

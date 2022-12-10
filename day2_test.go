@@ -2,44 +2,72 @@ package main
 
 import "testing"
 
-func TestGetWinningScoreExample(t *testing.T) {
+func TestGetPartialPuzzleWinningScoreExample(t *testing.T) {
 	// arrange
 	filename := "./data/day2Example.txt"
 	expected := 15
 
 	// act
-	result := getWinningScore(filename)
+	result := getPartialPuzzleWinningScore(filename)
 
 	// assert
 	if result != expected {
-		t.Fatalf("getWinningScore expected %d but got %d", expected, result)
+		t.Fatalf("getPartialPuzzleWinningScore expected %d but got %d", expected, result)
 	}
 }
 
-func TestGetWinningScoreActual(t *testing.T) {
+func TestGetPartialPuzzleWinningScoreActual(t *testing.T) {
 	// arrange
 	filename := "./data/day2Actual.txt"
 	expected := 14827
 
 	// act
-	result := getWinningScore(filename)
+	result := getPartialPuzzleWinningScore(filename)
 
 	// assert
 	if result != expected {
-		t.Fatalf("getWinningScore expected %d but got %d", expected, result)
+		t.Fatalf("getPartialPuzzleWinningScore expected %d but got %d", expected, result)
 	}
 }
 
-func TestGetWinningScoreWinners(t *testing.T) {
+func TestGetPartialPuzzleWinningScoreWinners(t *testing.T) {
 	// arrange
 	filename := "./data/day2Winners.txt"
 	expected := 24
 
 	// act
-	result := getWinningScore(filename)
+	result := getPartialPuzzleWinningScore(filename)
 
 	// assert
 	if result != expected {
-		t.Fatalf("getWinningScore expected %d but got %d", expected, result)
+		t.Fatalf("getPartialPuzzleWinningScore expected %d but got %d", expected, result)
+	}
+}
+
+func TestGetFullPuzzleWinningScoreExample(t *testing.T) {
+	// arrange
+	filename := "./data/day2Example.txt"
+	expected := 12
+
+	// act
+	result := getFullPuzzleWinningScore(filename)
+
+	// assert
+	if result != expected {
+		t.Fatalf("getFullPuzzleWinningScore expected %d but got %d", expected, result)
+	}
+}
+
+func TestGetFullPuzzleWinningScoreActual(t *testing.T) {
+	// arrange
+	filename := "./data/day2Actual.txt"
+	expected := 13889
+
+	// act
+	result := getFullPuzzleWinningScore(filename)
+
+	// assert
+	if result != expected {
+		t.Fatalf("getFullPuzzleWinningScore expected %d but got %d", expected, result)
 	}
 }

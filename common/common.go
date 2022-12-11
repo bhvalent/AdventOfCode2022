@@ -7,3 +7,12 @@ func Sum(nums []int) int {
 	}
 	return result
 }
+
+func IndexOf[T comparable](list []T, element T) int {
+	for i, item := range list {
+		if item == element {
+			return i
+		}
+	}
+	return -1
+}

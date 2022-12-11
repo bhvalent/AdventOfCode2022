@@ -1,19 +1,20 @@
 // https://adventofcode.com/2022/day/2
 
-package main
+package adventOfCode
 
 import (
+	"adventOfCode2022/common"
 	"fmt"
 	"strings"
 )
 
-func getPartialPuzzleWinningScore(filename string) int {
+func GetPartialPuzzleWinningScore(filename string) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
 	}
 
-	lines, err := getLinesFromFile(filename)
+	lines, err := common.GetLinesFromFile(filename)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -28,13 +29,13 @@ func getPartialPuzzleWinningScore(filename string) int {
 	return total
 }
 
-func getFullPuzzleWinningScore(filename string) int {
+func GetFullPuzzleWinningScore(filename string) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
 	}
 
-	lines, err := getLinesFromFile(filename)
+	lines, err := common.GetLinesFromFile(filename)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -55,9 +56,8 @@ func getFullPuzzleGameScore(a string, x string) int {
 		score += 6
 	} else if x == "Y" {
 		score += 3
-	} else {
-
 	}
+
 	return score + getShapeScoreFromOutcome(a, x)
 }
 

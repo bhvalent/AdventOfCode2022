@@ -1,6 +1,7 @@
-package main
+package adventOfCode_test
 
 import (
+	"adventOfCode2022/adventOfCode"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -12,7 +13,7 @@ func TestGetPartialPuzzleWinningScoreExample(t *testing.T) {
 	expected := 15
 
 	// act
-	result := getPartialPuzzleWinningScore(filename)
+	result := adventOfCode.GetPartialPuzzleWinningScore(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -24,7 +25,7 @@ func TestGetPartialPuzzleWinningScoreActual(t *testing.T) {
 	expected := 14827
 
 	// act
-	result := getPartialPuzzleWinningScore(filename)
+	result := adventOfCode.GetPartialPuzzleWinningScore(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -36,7 +37,7 @@ func TestGetPartialPuzzleWinningScoreWinners(t *testing.T) {
 	expected := 24
 
 	// act
-	result := getPartialPuzzleWinningScore(filename)
+	result := adventOfCode.GetPartialPuzzleWinningScore(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -48,7 +49,7 @@ func TestGetFullPuzzleWinningScoreExample(t *testing.T) {
 	expected := 12
 
 	// act
-	result := getFullPuzzleWinningScore(filename)
+	result := adventOfCode.GetFullPuzzleWinningScore(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -60,7 +61,7 @@ func TestGetFullPuzzleWinningScoreActual(t *testing.T) {
 	expected := 13889
 
 	// act
-	result := getFullPuzzleWinningScore(filename)
+	result := adventOfCode.GetFullPuzzleWinningScore(filename)
 
 	// assert
 	assert.Equal(t, expected, result)

@@ -1,15 +1,16 @@
 // https://adventofcode.com/2022/day/1
 
-package main
+package adventOfCode
 
 import (
+	"adventOfCode2022/common"
 	"errors"
 	"fmt"
 	"sort"
 	"strconv"
 )
 
-func getTopNElvesTotalCalories(filename string, n int) int {
+func GetTopNElvesTotalCalories(filename string, n int) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
@@ -18,7 +19,7 @@ func getTopNElvesTotalCalories(filename string, n int) int {
 		return 0
 	}
 
-	lines, err := getLinesFromFile(filename)
+	lines, err := common.GetLinesFromFile(filename)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -32,7 +33,7 @@ func getTopNElvesTotalCalories(filename string, n int) int {
 	}
 	maxElfCals := elfCalories[len(elfCalories)-n:]
 
-	return sum(maxElfCals)
+	return common.Sum(maxElfCals)
 }
 
 func getElfCalories(lines []string) ([]int, error) {
@@ -40,7 +41,7 @@ func getElfCalories(lines []string) ([]int, error) {
 	elf := []int{}
 	for i, line := range lines {
 		if line == "" {
-			total := sum(elf)
+			total := common.Sum(elf)
 			elfCalories = append(elfCalories, total)
 			elf = []int{}
 			continue
@@ -51,7 +52,7 @@ func getElfCalories(lines []string) ([]int, error) {
 				return []int{}, errors.New(msg)
 			}
 			elf = append(elf, cal)
-			total := sum(elf)
+			total := common.Sum(elf)
 			elfCalories = append(elfCalories, total)
 			continue
 		}

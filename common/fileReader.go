@@ -1,4 +1,4 @@
-package main
+package common
 
 import (
 	"bufio"
@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func getLinesFromFile(str string) ([]string, error) {
+func GetLinesFromFile(str string) ([]string, error) {
 	lines := []string{}
 
 	if str == "" {

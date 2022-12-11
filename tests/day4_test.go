@@ -1,6 +1,7 @@
-package main
+package adventOfCode_test
 
 import (
+	"adventOfCode2022/adventOfCode"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -12,7 +13,7 @@ func TestGetNumberOfEnvelopingPairsExample(t *testing.T) {
 	expected := 2
 
 	// act
-	result := getNumberOfEnvelopingPairs(filename)
+	result := adventOfCode.GetNumberOfEnvelopingPairs(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -24,7 +25,7 @@ func TestGetNumberOfEnvelopingPairsActual(t *testing.T) {
 	expected := 487
 
 	// act
-	result := getNumberOfEnvelopingPairs(filename)
+	result := adventOfCode.GetNumberOfEnvelopingPairs(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -36,7 +37,7 @@ func TestGetNumberOfOverlappingPairsExample(t *testing.T) {
 	expected := 4
 
 	// act
-	result := getNumberOfOverlappingPairs(filename)
+	result := adventOfCode.GetNumberOfOverlappingPairs(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -48,7 +49,7 @@ func TestGetNumberOfOverlappingPairsActual(t *testing.T) {
 	expected := 849
 
 	// act
-	result := getNumberOfOverlappingPairs(filename)
+	result := adventOfCode.GetNumberOfOverlappingPairs(filename)
 
 	// assert
 	assert.Equal(t, expected, result)

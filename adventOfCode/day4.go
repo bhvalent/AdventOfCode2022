@@ -1,20 +1,21 @@
 // https://adventofcode.com/2022/day/4
 
-package main
+package adventOfCode
 
 import (
+	"adventOfCode2022/common"
 	"fmt"
 	"strconv"
 	"strings"
 )
 
-func getNumberOfEnvelopingPairs(filename string) int {
+func GetNumberOfEnvelopingPairs(filename string) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
 	}
 
-	lines, err := getLinesFromFile(filename)
+	lines, err := common.GetLinesFromFile(filename)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -33,13 +34,13 @@ func getNumberOfEnvelopingPairs(filename string) int {
 	return sum
 }
 
-func getNumberOfOverlappingPairs(filename string) int {
+func GetNumberOfOverlappingPairs(filename string) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
 	}
 
-	lines, err := getLinesFromFile(filename)
+	lines, err := common.GetLinesFromFile(filename)
 
 	if err != nil {
 		fmt.Print(err.Error())

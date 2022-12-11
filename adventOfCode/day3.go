@@ -1,20 +1,21 @@
 // https://adventofcode.com/2022/day/3
 
-package main
+package adventOfCode
 
 import (
+	"adventOfCode2022/common"
 	"fmt"
 	"strings"
 	"unicode"
 )
 
-func getPrioritySum(filename string) int {
+func GetPrioritySum(filename string) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
 	}
 
-	lines, err := getLinesFromFile(filename)
+	lines, err := common.GetLinesFromFile(filename)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -31,13 +32,13 @@ func getPrioritySum(filename string) int {
 	return sum
 }
 
-func getBadgePrioritySum(filename string) int {
+func GetBadgePrioritySum(filename string) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
 	}
 
-	lines, err := getLinesFromFile(filename)
+	lines, err := common.GetLinesFromFile(filename)
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -56,7 +57,7 @@ func getBadgePrioritySum(filename string) int {
 		elfGroup = []string{}
 	}
 
-	return sum(badgePriorities)
+	return common.Sum(badgePriorities)
 }
 
 func getCompartments(rucksack string) (string, string) {

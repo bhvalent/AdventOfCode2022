@@ -1,6 +1,6 @@
-package main
+package common
 
-func sum(nums []int) int {
+func Sum(nums []int) int {
 	result := 0
 	for _, num := range nums {
 		result += num

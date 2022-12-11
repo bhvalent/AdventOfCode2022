@@ -67,11 +67,3 @@ func getElfCalories(lines []string) ([]int, error) {
 
 	return elfCalories, nil
 }
-
-func sum(nums []int) int {
-	result := 0
-	for _, num := range nums {
-		result += num
-	}
-	return result
-}

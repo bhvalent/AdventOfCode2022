@@ -31,6 +31,34 @@ func getPrioritySum(filename string) int {
 	return sum
 }
 
+func getBadgePrioritySum(filename string) int {
+	if filename == "" {
+		fmt.Print("Invalid Argumnent: filename cannot be empty")
+		return 0
+	}
+
+	lines, err := getLinesFromFile(filename)
+
+	if err != nil {
+		fmt.Print(err.Error())
+		return 0
+	}
+
+	elfGroup := []string{}
+	badgePriorities := []int{}
+	for _, line := range lines {
+		elfGroup = append(elfGroup, line)
+		if len(elfGroup) < 3 {
+			continue
+		}
+		priority := getElfGroupBadgePriority(elfGroup)
+		badgePriorities = append(badgePriorities, priority)
+		elfGroup = []string{}
+	}
+
+	return sum(badgePriorities)
+}
+
 func getCompartments(rucksack string) (string, string) {
 	length := len(rucksack)
 	return rucksack[:length/2], rucksack[length/2:]
@@ -52,6 +80,16 @@ func getItemPriority(item rune) int {
 		return int(item) - 96
 	} else if unicode.IsUpper(item) {
 		return int(item) - 38
+	}
+
+	return 0
+}
+
+func getElfGroupBadgePriority(elfGroup []string) int {
+	for _, letter := range elfGroup[0] {
+		if strings.ContainsRune(elfGroup[1], letter) && strings.ContainsRune(elfGroup[2], letter) {
+			return getItemPriority(letter)
+		}
 	}
 
 	return 0

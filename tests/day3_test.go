@@ -1,7 +1,7 @@
-package adventOfCode_test
+package aoc_test
 
 import (
-	"adventOfCode2022/adventOfCode"
+	"adventOfCode2022/aoc"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -13,7 +13,7 @@ func TestGetPrioritySumExample(t *testing.T) {
 	expected := 157
 
 	// act
-	result := adventOfCode.GetPrioritySum(filename)
+	result := aoc.GetPrioritySum(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -25,7 +25,7 @@ func TestGetPrioritySumActual(t *testing.T) {
 	expected := 8298
 
 	// act
-	result := adventOfCode.GetPrioritySum(filename)
+	result := aoc.GetPrioritySum(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -37,7 +37,7 @@ func TestGetBadgePrioritySumExample(t *testing.T) {
 	expected := 70
 
 	// act
-	result := adventOfCode.GetBadgePrioritySum(filename)
+	result := aoc.GetBadgePrioritySum(filename)
 
 	// assert
 	assert.Equal(t, expected, result)
@@ -49,7 +49,7 @@ func TestGetBadgePrioritySumActual(t *testing.T) {
 	expected := 2708
 
 	// act
-	result := adventOfCode.GetBadgePrioritySum(filename)
+	result := aoc.GetBadgePrioritySum(filename)
 
 	// assert
 	assert.Equal(t, expected, result)

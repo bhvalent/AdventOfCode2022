@@ -1,6 +1,6 @@
 // https://adventofcode.com/2022/day/3
 
-package adventOfCode
+package aoc
 
 import (
 	"adventOfCode2022/common"

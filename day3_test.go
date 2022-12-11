@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestGetPrioritySumExample(t *testing.T) {
 	// arrange
@@ -11,9 +15,7 @@ func TestGetPrioritySumExample(t *testing.T) {
 	result := getPrioritySum(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getPrioritySum expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetPrioritySumActual(t *testing.T) {
@@ -25,9 +27,7 @@ func TestGetPrioritySumActual(t *testing.T) {
 	result := getPrioritySum(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getPrioritySum expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetBadgePrioritySumExample(t *testing.T) {
@@ -39,9 +39,7 @@ func TestGetBadgePrioritySumExample(t *testing.T) {
 	result := getBadgePrioritySum(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getBadgePrioritySum expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetBadgePrioritySumActual(t *testing.T) {
@@ -53,7 +51,5 @@ func TestGetBadgePrioritySumActual(t *testing.T) {
 	result := getBadgePrioritySum(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getBadgePrioritySum expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }

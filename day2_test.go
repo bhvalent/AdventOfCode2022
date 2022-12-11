@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestGetPartialPuzzleWinningScoreExample(t *testing.T) {
 	// arrange
@@ -11,9 +15,7 @@ func TestGetPartialPuzzleWinningScoreExample(t *testing.T) {
 	result := getPartialPuzzleWinningScore(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getPartialPuzzleWinningScore expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetPartialPuzzleWinningScoreActual(t *testing.T) {
@@ -25,9 +27,7 @@ func TestGetPartialPuzzleWinningScoreActual(t *testing.T) {
 	result := getPartialPuzzleWinningScore(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getPartialPuzzleWinningScore expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetPartialPuzzleWinningScoreWinners(t *testing.T) {
@@ -39,9 +39,7 @@ func TestGetPartialPuzzleWinningScoreWinners(t *testing.T) {
 	result := getPartialPuzzleWinningScore(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getPartialPuzzleWinningScore expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetFullPuzzleWinningScoreExample(t *testing.T) {
@@ -53,9 +51,7 @@ func TestGetFullPuzzleWinningScoreExample(t *testing.T) {
 	result := getFullPuzzleWinningScore(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getFullPuzzleWinningScore expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetFullPuzzleWinningScoreActual(t *testing.T) {
@@ -67,7 +63,5 @@ func TestGetFullPuzzleWinningScoreActual(t *testing.T) {
 	result := getFullPuzzleWinningScore(filename)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getFullPuzzleWinningScore expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }

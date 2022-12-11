@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestGetTopNElvesTotalCaloriesExampleOne(t *testing.T) {
 	// arrange
@@ -11,9 +15,7 @@ func TestGetTopNElvesTotalCaloriesExampleOne(t *testing.T) {
 	result := getTopNElvesTotalCalories(filename, 1)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getTopNElvesTotalCalories expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetTopNElvesTotalCaloriesOne(t *testing.T) {
@@ -25,9 +27,7 @@ func TestGetTopNElvesTotalCaloriesOne(t *testing.T) {
 	result := getTopNElvesTotalCalories(filename, 1)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getTopNElvesTotalCalories expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetTopNElvesTotalCaloriesExampleThree(t *testing.T) {
@@ -39,9 +39,7 @@ func TestGetTopNElvesTotalCaloriesExampleThree(t *testing.T) {
 	result := getTopNElvesTotalCalories(filename, 3)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getTopNElvesTotalCalories expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }
 
 func TestGetTopNElvesTotalCaloriesThree(t *testing.T) {
@@ -53,7 +51,5 @@ func TestGetTopNElvesTotalCaloriesThree(t *testing.T) {
 	result := getTopNElvesTotalCalories(filename, 3)
 
 	// assert
-	if result != expected {
-		t.Fatalf("getTopNElvesTotalCalories expected %d but got %d", expected, result)
-	}
+	assert.Equal(t, expected, result)
 }

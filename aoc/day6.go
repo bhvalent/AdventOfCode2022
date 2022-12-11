@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func GetNumOfCharsBeforePacket(filename string) int {
+func GetNumOfCharsBeforeNDistinct(filename string, n int) int {
 	if filename == "" {
 		fmt.Print("Invalid Argumnent: filename cannot be empty")
 		return 0
@@ -20,17 +20,13 @@ func GetNumOfCharsBeforePacket(filename string) int {
 		return 0
 	}
 
-	// dataStream := ""
-	// for _, line := range lines {
-	// 	dataStream += line
-	// }
 	dataStream := lines[0]
 	marker := ""
 	for i, _ := range dataStream {
-		if i < 3 {
+		if i < n-1 {
 			continue
 		}
-		marker = dataStream[i-3 : i+1]
+		marker = dataStream[i-(n-1) : i+1]
 		if isStartOfPacket(marker) {
 			return i + 1
 		}

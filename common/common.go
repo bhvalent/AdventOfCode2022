@@ -17,6 +17,17 @@ func IndexOf[T comparable](list []T, element T) int {
 	return -1
 }
 
+func IndicesOf[T comparable](list []T, element T) []int {
+	indices := []int{}
+
+	for i, item := range list {
+		if item == element {
+			indices = append(indices, i)
+		}
+	}
+	return indices
+}
+
 func Distinct[T comparable](items []T) []T {
 	keys := make(map[T]bool)
 	list := []T{}

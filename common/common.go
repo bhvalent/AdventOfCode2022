@@ -8,6 +8,14 @@ func Sum(nums []int) int {
 	return result
 }
 
+func Product(nums []int) int {
+	result := 1
+	for _, num := range nums {
+		result = result * num
+	}
+	return result
+}
+
 func IndexOf[T comparable](list []T, element T) int {
 	for i, item := range list {
 		if item == element {
@@ -39,5 +47,12 @@ func Distinct[T comparable](items []T) []T {
 		}
 	}
 
+	return list
+}
+
+func Reverse[T comparable](list []T) []T {
+	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
+		list[i], list[j] = list[j], list[i]
+	}
 	return list
 }
